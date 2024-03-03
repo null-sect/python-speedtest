@@ -22,7 +22,7 @@ jobs:
         run: pip install numpy 
 
       - name: Run speed test
-        run: python main.py | tee speed_test.txt
+        run: python main.py
 
       - name: commit speed test results
         run: |

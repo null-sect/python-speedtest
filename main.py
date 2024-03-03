@@ -1,6 +1,7 @@
 
 from timer import Timer
 import numpy as np
+from datetime import datetime
 
 # 1~10までの平方を計算する関数
 # expected result: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
@@ -24,9 +25,14 @@ def use_numpy():
     return np.square(np.arange(1, 11))
 
 # それぞれの関数を実行
+print("# テスト日: " + datetime.now().strftime("%Y/%m/%d %H:%M:%S" + "\n"))
+print('```')
 print('simple_loop')
 simple_loop()
+print('\n')
 print('use_pow')
 use_pow()
+print('\n')
 print('use_numpy')
 use_numpy()
+print('```')

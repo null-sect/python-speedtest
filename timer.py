@@ -24,15 +24,15 @@ class Timer:
         avg_time = self.elapsed / 100000
         self.times.sort()
         median_time = self.times[50000]
+        min_time = self.min_time
+        max_time = self.max_time
         print(f'平均時間: {avg_time:.5f}')
         print(f'中央値: {median_time:.5f}')
         print(f'最小値: {self.min_time:.5f}')
         print(f'最大値: {self.max_time:.5f}')
-
-        return avg_time, median_time, self.min_time, self.max_time
-
         self.reset()
-
+        return self.func(*args, **kwargs), avg_time, median_time, min_time, max_time
+    
     def reset(self):
         self.elapsed = 0
         self.min_time = float('inf')

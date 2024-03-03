@@ -24,15 +24,11 @@ def use_pow():
 def use_numpy():
     return np.square(np.arange(1, 11))
 
-# それぞれの関数を実行
-print("# テスト日: " + datetime.now().strftime("%Y/%m/%d %H:%M:%S" + "\n"))
-print('```')
-print('simple_loop')
-simple_loop()
-print('\n')
-print('use_pow')
-use_pow()
-print('\n')
-print('use_numpy')
-use_numpy()
-print('```')
+
+# speedtest.txt に結果を書き込む
+with open('./speedtest.txt', 'a') as f:
+    f.write(f'実行日時: {datetime.now()}\n')
+    f.write(f'シンプルなループ: {simple_loop()}\n')
+    f.write(f'powを使って計算: {use_pow()}\n')
+    f.write(f'numpyを使って計算: {use_numpy()}\n')
+    f.write('\n')

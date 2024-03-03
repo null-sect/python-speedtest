@@ -21,11 +21,16 @@ class Timer:
             self.min_time = min(self.min_time, elapsed)
             self.max_time = max(self.max_time, elapsed)
             self.times.append(elapsed)
-        print(f'Average: {self.elapsed / 100000}')
-        print(f'Min: {self.min_time}')
-        print(f'Max: {self.max_time}')
-        print(f'Median: {sorted(self.times)[len(self.times) // 2]}')
-        print(f'Count: {len(self.times)}')
+        avg_time = self.elapsed / 100000
+        self.times.sort()
+        median_time = self.times[50000]
+        print(f'平均時間: {avg_time:.5f}')
+        print(f'中央値: {median_time:.5f}')
+        print(f'最小値: {self.min_time:.5f}')
+        print(f'最大値: {self.max_time:.5f}')
+
+        return avg_time, median_time, self.min_time, self.max_time
+
         self.reset()
 
     def reset(self):
